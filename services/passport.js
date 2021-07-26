@@ -39,15 +39,15 @@ passport.use(
   )
 );
 
-passport.use(
-  new FacebookStrategy(
-    {
-      clientID: keys.facebookClientID,
-      clientSecret: keys.facebookClientSecret,
-      callbackURL: "/auth/facebook/callback",
-    },
-    (accessToken, refreshToken, profile, done) => {
-      console.log("profile", profile);
-    }
-  )
-);
+// passport.use(
+//   new FacebookStrategy(
+//     {
+//       clientID: keys.facebookClientID,
+//       clientSecret: keys.facebookClientSecret,
+//       callbackURL: "/auth/facebook/callback",
+//     },
+//     (accessToken, refreshToken, profile, done) => {
+//       console.log("profile", profile);
+//     }
+//   )
+// );

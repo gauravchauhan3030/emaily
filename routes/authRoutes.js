@@ -12,14 +12,14 @@ module.exports = function (app) {
 
   // for fb
 
-  app.get(
-    "/auth/facebook",
-    passport.authenticate("facebook", {
-      scope: ["user_friends", "user_birthday"],
-    })
-  );
+  //   app.get(
+  //     "/auth/facebook",
+  //     passport.authenticate("facebook", {
+  //       scope: ["user_friends", "user_birthday"],
+  //     })
+  //   );
 
-  app.get("/auth/facebook/callback", passport.authenticate("facebook"));
+  //   app.get("/auth/facebook/callback", passport.authenticate("facebook"));
 
   app.get("/api/current_user", (req, res) => {
     res.send(req.user);
