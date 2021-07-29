@@ -12,6 +12,8 @@ const app = express();
 
 app.use(bodyParser.json());
 
+mongoose.connect(keys.mongoURI);
+
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -25,7 +27,20 @@ app.use(passport.session());
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
 
-mongoose.connect(keys.mongoURI);
+if (process.env.NODE_ENV == "production") {
+  //express will serve our prod assets like main.js or main,css file
+
+  app.use(express.static("client/build"));
+
+  //express will serve the html file
+  //if it does not recognise the route
+
+  const path = require("path");
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 
