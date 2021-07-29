@@ -37,6 +37,12 @@ if (process.env.NODE_ENV == "production") {
 
   const path = require("path");
 
+  console.log(
+    "path is :::",
+    path.resolve(__dirname),
+    path.resolve("client/build")
+  );
+
   app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
