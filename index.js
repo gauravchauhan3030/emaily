@@ -1,4 +1,5 @@
 require("./models/Users");
+require("./models/Survey");
 require("./services/passport");
 
 const express = require("express");
@@ -26,6 +27,7 @@ app.use(passport.session());
 
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 
 if (process.env.NODE_ENV == "production") {
   //express will serve our prod assets like main.js or main,css file
