@@ -6,9 +6,8 @@ import * as actions from "../actions";
 
 import Header from "./Header";
 import Landing from "./Landing";
-
-const Dashboard = () => <h1>Dashboard</h1>;
-const SurveyNew = () => <h1>SurveyNew</h1>;
+import Dashboard from "./Dashboard";
+import SurveyNew from "./surveys/SurveyNew";
 
 function App({ fetchUser }) {
   useEffect(() => {
@@ -21,7 +20,6 @@ function App({ fetchUser }) {
           <Header />
           <Route exact path="/" component={Landing} />
           <Route exact path="/surveys" component={Dashboard} />
-          {/* <Route exact path="/api/surveys/thanks" component={Dashboard} /> */}
           <Route exact path="/surveys/new" component={SurveyNew} />
         </div>
       </BrowserRouter>
